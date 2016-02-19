@@ -1,0 +1,15 @@
+{
+  "name": "calendar-widget",
+  "version": "1.0.0",
+  "description": "Inspired on https://dribbble.com/shots/2510127-Dribbble-011-Calendar-Card",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-webserver": "^0.9.1"
+  },
+  "scripts": {},
+  "author": "Felipe Vasconcelos <felipe.vasconcelos@live.com>",
+  "license": "MIT"
+}

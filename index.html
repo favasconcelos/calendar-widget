@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calendar Widget</title>
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,100,100italic,300,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div id="card">
+
+			<div id="calendar">
+				<p id="year">2016</p>
+				<p id="month">Feb</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Dom</td>
+							<td class="selected">Seg</td>
+							<td>Ter</td>
+							<td>Qua</td>
+							<td>Qui</td>
+							<td>Sex</td>
+							<td>Sab</td>							
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+
+			<div id="date">
+				<p id="day">Sexta 10</p>
+				<ul id="notes">
+					<li>
+						11:15h - Branch at Francos						
+					</li>	
+					<li>
+						11:15h - Branch at Francos						
+					</li>
+					<li>
+						11:15h - Branch at Francos						
+					</li>				
+				</ul>
+				<div id="add_note">
+					<input type="text" value="Add notes"/>
+					<span class="icon plus"></span>
+				</div>
+			</div>
+
+		</div>
+		<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+		<script src="js/app.js" type="text/javascript"></script>
+	</body>
+</html>

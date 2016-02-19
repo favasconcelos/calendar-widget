@@ -1,0 +1,21 @@
+{
+  "name": "calendar-widget",
+  "authors": [
+    "Felipe Vasconcelos <felipe.vasconcelos@live.com>"
+  ],
+  "description": "Inspired on https://dribbble.com/shots/2510127-Dribbble-011-Calendar-Card",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

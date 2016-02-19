@@ -1,0 +1,107 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    color: white;
+    font-family: Roboto;
+}
+
+body {
+	background-color: #38315D;
+}
+
+#card {
+	position: relative;
+    width: 700px;
+    height: 450px;
+    margin: 5% auto;
+    #calendar {
+        padding: 40px 20px;
+        width: 450px;
+        height: 100%;        
+        background-color: #5D457F;
+        float: left;
+        border-radius: 20px 0px 0px 20px;
+        #year {
+            font-size: 16px;
+            font-weight: 300;
+        }
+        #month {
+            font-size: 30px;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+        table {
+        	width: 100%;
+        	height: 100%;
+        	margin-top: 40px;
+        	color: white;
+        	text-align: center;
+        }
+        table thead td {
+        	font-size: 14px;
+        	font-weight: 500; 
+        	text-transform: uppercase;      	
+        }
+        table tbody td {
+        	font-size: 12px;
+        	font-weight: 300;
+        }
+
+        table td.selected {
+        	color: #A34786;
+        }
+    }
+    #date {
+    	position: relative;
+    	padding: 40px 20px;
+        width: 250px;
+        height: 100%;
+        float: right;
+        background-color: #3B3B6F;
+        border-radius: 0px 20px 20px 0px;
+
+        #day {
+            font-size: 22px;
+            font-weight: 300;
+            margin-top: 30px;            
+        }
+
+        #notes {
+        	list-style-type: none;
+        	margin-top: 40px;
+        }
+
+        #notes > li {
+        	font-size: 15px;
+        	font-weight: 200;
+        }
+
+        #add_note {
+        	position: absolute;
+	        bottom: 40px;
+	        padding-bottom: 5px;
+	        border-bottom: 1px solid #A34786;
+        	input {	        	
+	        	padding: 5px;
+	        	border: 0px;	 
+	        	float: left;       	
+	        	background-color: transparent;
+	        	color: #A34786;
+	        }
+	        input:focus {
+	        	outline: none;
+	        }
+	        span.icon {
+	        	background: url('../img/ic_add.png');
+	        	background-repeat: no-repeat;
+	        	padding: 5px;
+	        	float: right;
+	        	width: 24px;
+	        	height: 24px;
+	        }
+        }
+        
+    }
+}
+
