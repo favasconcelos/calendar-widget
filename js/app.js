@@ -22,6 +22,9 @@ class App {
     		return new Date();
     	}
     	var groups = url.match(/[^#]*#([\d]{2}),([\d]{2}),([\d]{4})/i);
+        if(groups == null){
+            return new Date();
+        }
     	var year = parseInt(groups[3]);
     	var month = parseInt(groups[2]) - 1;
     	var day = parseInt(groups[1]);
