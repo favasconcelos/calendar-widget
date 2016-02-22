@@ -10,12 +10,12 @@ body {
 
 #card {
   position: relative;
-  width: 700px;
+  width: 650px;
   height: 450px;
   margin: 5% auto; }
   #card #calendar {
     padding: 40px 20px;
-    width: 450px;
+    width: 400px;
     height: 100%;
     background-color: #5D457F;
     float: left;
@@ -33,19 +33,21 @@ body {
       color: white;
       text-align: center; }
     #card #calendar table td {
-      height: 40px; }
+      height: 30px; }
     #card #calendar table thead td {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       text-transform: uppercase; }
     #card #calendar table tbody td {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 400;
       color: #e1e1e1; }
     #card #calendar table td.past {
       color: white; }
     #card #calendar table td.selected {
-      color: #c274aa; }
+      color: #c274aa;
+      background-color: #FFF;
+      border-radius: 5px; }
   #card #date {
     position: relative;
     padding: 40px 20px;

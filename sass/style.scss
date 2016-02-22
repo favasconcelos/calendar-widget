@@ -12,12 +12,12 @@ body {
 
 #card {
     position: relative;
-    width: 700px;
+    width: 650px;
     height: 450px;
     margin: 5% auto;
     #calendar {
         padding: 40px 20px;
-        width: 450px;
+        width: 400px;
         height: 100%;
         background-color: #5D457F;
         float: left;
@@ -38,15 +38,15 @@ body {
             text-align: center;
         }
         table td {
-            height: 40px;
+            height: 30px;
         }
         table thead td {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 500;
             text-transform: uppercase;
         }
         table tbody td {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 400;
             color: #e1e1e1;
         }
@@ -55,6 +55,8 @@ body {
         }
         table td.selected {
             color: #c274aa;
+            background-color: #FFF;
+            border-radius: 5px;
         }
     }
     #date {

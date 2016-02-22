@@ -25,7 +25,11 @@ class App {
     	var year = parseInt(groups[3]);
     	var month = parseInt(groups[2]) - 1;
     	var day = parseInt(groups[1]);
-    	return new Date(year, month, day);
+    	try {
+    		return new Date(year, month, day);
+    	} catch (ex){
+    		return new Date();
+    	}
     }
 
     addListener() {
@@ -40,7 +44,7 @@ class App {
     }
 
     updateMonth() {
-    	var months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+    	var months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
         var month = this.day.getMonth();
         $('#month').text(months[month]);
     }
