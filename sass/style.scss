@@ -22,6 +22,14 @@ body {
         background-color: #5D457F;
         float: left;
         border-radius: 20px 0px 0px 20px;
+        #today {
+            background: url('../img/ic_today.png');
+            background-repeat: no-repeat;
+            float: right;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
         #year {
             font-size: 16px;
             font-weight: 300;
@@ -38,6 +46,7 @@ body {
             text-align: center;
         }
         table td {
+            width: 50px;
             height: 30px;
         }
         table thead td {
@@ -45,16 +54,14 @@ body {
             font-weight: 500;
             text-transform: uppercase;
         }
-        table tbody td {
+        table tbody td.day {
             font-size: 12px;
             font-weight: 400;
             color: #e1e1e1;
-        }
-        table td.past {
-            color: lighten(#c274aa, 60);
+            cursor: pointer;
         }
         table td.selected {
-            color: #c274aa;
+            color: #c274aa !important;
             background-color: #FFF;
             border-radius: 5px;
         }

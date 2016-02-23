@@ -20,6 +20,13 @@ body {
     background-color: #5D457F;
     float: left;
     border-radius: 20px 0px 0px 20px; }
+    #card #calendar #today {
+      background: url("../img/ic_today.png");
+      background-repeat: no-repeat;
+      float: right;
+      width: 24px;
+      height: 24px;
+      cursor: pointer; }
     #card #calendar #year {
       font-size: 16px;
       font-weight: 300; }
@@ -33,19 +40,19 @@ body {
       color: white;
       text-align: center; }
     #card #calendar table td {
+      width: 50px;
       height: 30px; }
     #card #calendar table thead td {
       font-size: 14px;
       font-weight: 500;
       text-transform: uppercase; }
-    #card #calendar table tbody td {
+    #card #calendar table tbody td.day {
       font-size: 12px;
       font-weight: 400;
-      color: #e1e1e1; }
-    #card #calendar table td.past {
-      color: white; }
+      color: #e1e1e1;
+      cursor: pointer; }
     #card #calendar table td.selected {
-      color: #c274aa;
+      color: #c274aa !important;
       background-color: #FFF;
       border-radius: 5px; }
   #card #date {
