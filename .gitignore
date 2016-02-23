@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/osx,node,bower
+# Created by https://www.gitignore.io/api/osx,node
 
 ### OSX ###
 .DS_Store
@@ -55,8 +55,9 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directory
+# Dependency directories
 node_modules
+jspm_packages
 
 # Optional npm cache directory
 .npm
@@ -64,11 +65,5 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-
-### Bower ###
-bower_components
-.bower-cache
-.bower-registry
-.bower-tmp
 
 .sublime*
