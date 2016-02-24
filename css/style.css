@@ -69,10 +69,17 @@ body {
       margin-top: 30px; }
     #card #date #notes {
       list-style-type: none;
-      margin-top: 40px; }
-    #card #date #notes > li {
-      font-size: 15px;
-      font-weight: 200; }
+      margin-top: 40px;
+      height: 220px;
+      overflow: auto; }
+      #card #date #notes li {
+        font-size: 15px;
+        font-weight: 200; }
+        #card #date #notes li span.time {
+          font-size: 14px;
+          font-weight: bold; }
+        #card #date #notes li span.title {
+          font-size: 16px; }
     #card #date #add_note {
       position: absolute;
       bottom: 40px;
@@ -92,4 +99,5 @@ body {
         padding: 5px;
         float: right;
         width: 24px;
-        height: 24px; }
+        height: 24px;
+        cursor: pointer; }

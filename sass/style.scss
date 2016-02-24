@@ -82,10 +82,19 @@ body {
         #notes {
             list-style-type: none;
             margin-top: 40px;
-        }
-        #notes > li {
-            font-size: 15px;
-            font-weight: 200;
+            height: 220px;
+            overflow: auto;
+            li {
+                font-size: 15px;
+                font-weight: 200;
+                span.time {
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+                span.title {
+                    font-size: 16px;
+                }
+            }
         }
         #add_note {
             position: absolute;
@@ -109,6 +118,7 @@ body {
                 float: right;
                 width: 24px;
                 height: 24px;
+                cursor: pointer;
             }
         }
     }
