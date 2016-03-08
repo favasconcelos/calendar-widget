@@ -12,7 +12,6 @@ class App {
 
     constructor() {
         this.day = this.getToday();
-
         this.addListener();
         this.updateYear();
         this.updateMonth();
@@ -198,13 +197,16 @@ class Storage {
         var json = JSON.stringify(notes);
         localStorage.setItem(id, json);
     }
+
 }
 
 class Note {
+
     constructor(time, text) {
         this.time = time;
         this.text = text;
     }
+
 }
 
 $(document).ready(() => {
