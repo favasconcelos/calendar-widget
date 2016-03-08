@@ -11,8 +11,6 @@ Date.prototype.monthDays = function() {
 class App {
 
     constructor() {
-        this.notes = Storage.load();
-
         this.day = this.getToday();
 
         this.addListener();
@@ -22,7 +20,6 @@ class App {
         this.showDate(this.day);
     }
 
-
     getToday() {
         var url = window.location.href;
         if (!url || url == undefined) {
@@ -30,6 +27,7 @@ class App {
         }
         var groups = url.match(/[^#]*#([\d]{2}),([\d]{2}),([\d]{4})/i);
         if (groups == null) {
+            console.log('No date found on url.');
             return new Date();
         }
         var year = parseInt(groups[3]);
@@ -38,6 +36,7 @@ class App {
         try {
             return new Date(year, month, day);
         } catch (ex) {
+            console.log('No date found on url.');
             return new Date();
         }
     }
@@ -152,18 +151,13 @@ class App {
 
     saveNote(note) {
         var id = this.getNoteId();
-        var notes = localStorage.getItem(id);
-        if (!notes) {
-            notes = [];
-        } else {
-            notes =
-        }
+        var notes = Storage.load(id);
         var time = this.day.getHours() + ':' + this.day.getMinutes();
         notes.push({
             time: time,
             text: note
         });
-        localStorage.setItem(id, notes);
+        Storage.save(id, notes);
         this.loadNotes();
     }
 
@@ -172,10 +166,8 @@ class App {
         list.empty();
 
         var id = this.getNoteId();
-        var notes = localStorage.getItem(id);
-        console.log('Id: ' + id);
-        console.log('Note: ' + notes);
-        if (notes) {
+        var notes = Storage.load(id);
+        if (notes.length > 0) {
             notes.forEach((note) => {
                 var li = '<li>';
                 li += '<span class="time">' + note.time + '</span>';
@@ -193,8 +185,8 @@ class App {
 
 class Storage {
 
-    static load() {
-        var json = localStorage.getItem('notes');
+    static load(id) {
+        var json = localStorage.getItem(id);
         if (!json) {
             return [];
         } else {
@@ -202,9 +194,9 @@ class Storage {
         }
     }
 
-    static save(notes) {
-        var json = JSON.stringfy(notes);
-        localStorage.setItem('notes', json);
+    static save(id, notes) {
+        var json = JSON.stringify(notes);
+        localStorage.setItem(id, json);
     }
 }
 
@@ -212,7 +204,6 @@ class Note {
     constructor(time, text) {
         this.time = time;
         this.text = text;
-    }
     }
 }
 

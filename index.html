@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Calendar Widget</title>
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,100,100italic,300,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	</head>
-	<body>
-		<div id="card">
 
-			<div id="calendar">
-				<p id="today" title="Today"></p>
-				<p id="year"></p>
-				<p id="month"></p>
-				<table id="table-calendar">
-					<thead>
-						<tr>
-							<td>Dom</td>
-							<td>Seg</td>
-							<td>Ter</td>
-							<td>Qua</td>
-							<td>Qui</td>
-							<td>Sex</td>
-							<td>Sab</td>							
-						</tr>
-					</thead>
-					<tbody>
-					</tbody>
-				</table>
-			</div>
+<head>
+    <title>Calendar Widget</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,100,100italic,300,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
 
-			<div id="date">
-				<p id="day">Sexta 10</p>
-				<ul id="notes"></ul>
-				<div id="add_note">
-					<input id="txt_add_note" type="text" value="Add note"/>
-					<span id="btn_add_note" class="icon plus"></span>
-				</div>
-			</div>
+<body>
+    <div id="card">
+        <div id="calendar">
+            <p id="today" title="Today"></p>
+            <p id="year"></p>
+            <p id="month"></p>
+            <table id="table-calendar">
+                <thead>
+                    <tr>
+                        <td>Dom</td>
+                        <td>Seg</td>
+                        <td>Ter</td>
+                        <td>Qua</td>
+                        <td>Qui</td>
+                        <td>Sex</td>
+                        <td>Sab</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="date">
+            <p id="day"></p>
+            <ul id="notes"></ul>
+            <div id="add_note">
+                <input id="txt_add_note" type="text" value="Add note" />
+                <span id="btn_add_note" class="icon plus"></span>
+            </div>
+        </div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+</body>
 
-		</div>
-		<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
-		<script src="js/app.js" type="text/javascript"></script>
-	</body>
 </html>
