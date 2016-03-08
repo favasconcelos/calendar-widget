@@ -9,9 +9,9 @@ Date.prototype.monthDays = function() {
 }
 
 class App {
+
     constructor() {
         this.day = this.getToday();
-
         this.addListener();
         this.updateYear();
         this.updateMonth();
@@ -26,6 +26,7 @@ class App {
         }
         var groups = url.match(/[^#]*#([\d]{2}),([\d]{2}),([\d]{4})/i);
         if (groups == null) {
+            console.log('No date found on url.');
             return new Date();
         }
         var year = parseInt(groups[3]);
@@ -34,14 +35,36 @@ class App {
         try {
             return new Date(year, month, day);
         } catch (ex) {
+            console.log('No date found on url.');
             return new Date();
         }
     }
 
     addListener() {
-        $('#today').click((e) => {
+        $('#btn_add_note').on('click', (e) => {
+            var value = $('#txt_add_note').val();
+            if (value != '' && value != 'Add note') {
+                this.saveNote(value);
+            }
+        });
+
+        $('#txt_add_note').on('focusin', (e) => {
+            var input = $(e.target);
+            if (input.val() == 'Add note') {
+                input.val('');
+            }
+        });
+        $('#txt_add_note').on('focusout', (e) => {
+            var input = $(e.target);
+            if (input.val() == '') {
+                input.val('Add note');
+            }
+        });
+
+        $('#today').on('click', (e) => {
             this.showDate(new Date());
         });
+
         $('body').on('click', 'td.day', (e) => {
             var day = $(e.target).text();
             this.showDate(parseInt(day));
@@ -78,11 +101,11 @@ class App {
                     if (day == today.getDate()) {
                         classes += ' selected';
                     }
-                    id = 'day-'+day;
+                    id = 'day-' + day;
                     td = day;
                     day++;
                 }
-                tr += '<td id="'+id+'" class="' + classes + '">' + td + '</td>';
+                tr += '<td id="' + id + '" class="' + classes + '">' + td + '</td>';
             }
             // stop making rows if we've run out of days
             if (day > monthLength) {
@@ -99,29 +122,91 @@ class App {
 
     showDate(day) {
         if (typeof day == 'number') {
-            if(this.day.getDate() == day){
-                return;
-            }
+            // if (this.day.getDate() == day) {
+            //     return;
+            // }
             this.day.setDate(day);
         } else {
-            if(this.day == day){
-                return;
-            }
+            // if (this.day == day) {
+            //     return;
+            // }
             this.day = day;
         }
         $('td.selected').removeClass('selected');
-        $('td#day-'+this.day.getDate()).addClass('selected');
+        $('td#day-' + this.day.getDate()).addClass('selected');
 
         var text = WEEKDAYS[this.day.getDay()] + ' ' + this.day.getDate();
         $('#day').text(text);
+
+        this.loadNotes();
     }
+
+    getNoteId() {
+        var day = this.day.getDate();
+        var month = this.day.getMonth();
+        var year = this.day.getFullYear();
+        return day + ',' + month + ',' + year;
+    }
+
+    saveNote(note) {
+        var id = this.getNoteId();
+        var notes = Storage.load(id);
+        var time = this.day.getHours() + ':' + this.day.getMinutes();
+        notes.push({
+            time: time,
+            text: note
+        });
+        Storage.save(id, notes);
+        this.loadNotes();
+    }
+
+    loadNotes() {
+        var list = $('#notes');
+        list.empty();
+
+        var id = this.getNoteId();
+        var notes = Storage.load(id);
+        if (notes.length > 0) {
+            notes.forEach((note) => {
+                var li = '<li>';
+                li += '<span class="time">' + note.time + '</span>';
+                li += '<span class="title"> - ' + note.text + '</span>';
+                li += '</li>';
+                list.append(li);
+            });
+        } else {
+            var li = '<li>No notes.</li>';
+            list.append(li);
+        }
+    }
+
+}
+
+class Storage {
+
+    static load(id) {
+        var json = localStorage.getItem(id);
+        if (!json) {
+            return [];
+        } else {
+            return JSON.parse(json);
+        }
+    }
+
+    static save(id, notes) {
+        var json = JSON.stringify(notes);
+        localStorage.setItem(id, json);
+    }
+
 }
 
 class Note {
-    constructor(day, text) {
-        this.day = day;
+
+    constructor(time, text) {
+        this.time = time;
         this.text = text;
     }
+
 }
 
 $(document).ready(() => {
