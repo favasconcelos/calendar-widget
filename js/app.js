@@ -13,9 +13,6 @@ class App {
     constructor() {
         this.day = this.getToday();
         this.addListener();
-        this.updateYear();
-        this.updateMonth();
-        this.updateCalendar(this.day);
         this.showDate(this.day);
     }
 
@@ -26,7 +23,6 @@ class App {
         }
         var groups = url.match(/[^#]*#([\d]{2}),([\d]{2}),([\d]{4})/i);
         if (groups == null) {
-            console.log('No date found on url.');
             return new Date();
         }
         var year = parseInt(groups[3]);
@@ -35,7 +31,6 @@ class App {
         try {
             return new Date(year, month, day);
         } catch (ex) {
-            console.log('No date found on url.');
             return new Date();
         }
     }
@@ -81,11 +76,12 @@ class App {
         $('#month').text(MONTHS[month]);
     }
 
-    updateCalendar(today) {
-        var firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+    updateCalendar() {
+        var firstDay = new Date(this.day.getFullYear(), this.day.getMonth(), 1);
         var startingDay = firstDay.getDay();
         var monthLength = firstDay.monthDays();
 
+        $('#table-calendar').html('<thead><tr><td>Dom</td><td>Seg</td><td>Ter</td><td>Qua</td><td>Qui</td><td>Sex</td><td>Sab</td></tr></thead><tbody></tbody>');
         var tbody = $('#table-calendar').find('tbody');
         var tr = '<tr>';
         var day = 1;
@@ -98,7 +94,7 @@ class App {
                 var td = '';
                 if (day <= monthLength && (i > 0 || j >= startingDay)) {
                     classes = 'day';
-                    if (day == today.getDate()) {
+                    if (day == this.day.getDate()) {
                         classes += ' selected';
                     }
                     id = 'day-' + day;
@@ -132,6 +128,10 @@ class App {
             // }
             this.day = day;
         }
+        this.updateYear();
+        this.updateMonth();
+        this.updateCalendar();
+
         $('td.selected').removeClass('selected');
         $('td#day-' + this.day.getDate()).addClass('selected');
 
